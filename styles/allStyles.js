@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     height: 300,
     marginBottom: 20,
     alignItems: 'stretch',
+    // aspectRatio: 1,
   },
 
   cardContainer: {
@@ -32,10 +33,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
   },
+  
   likeButton: {
     width: 20,
     height: 18,
-    // backgroundColor: 'red',
     position: 'absolute',
     top: 15,
     right: 15,
@@ -104,3 +105,9 @@ const styles = StyleSheet.create({
 });
 
 export default styles
+
+
+
+
+// git add -A 
+// git commit -m 'имя коммита'

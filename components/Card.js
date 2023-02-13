@@ -1,27 +1,39 @@
 import {
   Text, View, Image,
-  Pressable, Button
+  Pressable, TextInput,
 } from 'react-native';
-// import { Icon } from '@rneui/themed';
+import {
+  useState
+} from 'react'
+
 
 
 import styles from '../styles/allStyles';
 
 function Card({name, rating, price, imgLink, isNew}) {
-  
+  const [isLiked, setIsLiked] = useState(false)
+
+  const handleLikeLink = (evt) => {
+    setIsLiked(!isLiked)
+  }
 
 
   return (
     <View style={styles.card}>
       <View style={styles.cardContainer}>
-          <Pressable style={styles.likeButton}>
-            <Image style={styles.likeImg} source={require('../images/like.png')} />
+          <Pressable style={styles.likeButton} onPress={handleLikeLink}>
+            {isLiked? (
+              <Image style={styles.likeImg} source={require('../images/blackLike.png')}/>
+            ): (
+              <Image style={styles.likeImg} source={require('../images/like.png')}/>
+            )}
+            {/* <Image style={styles.likeImg} source={require(likeLink)}/> */}
           </Pressable>
-          {/* <Button title='' color=''><Image style={styles.likeImg} source={require('../images/like.png')} /></Button> */}
           <Image style={styles.carImage} source={imgLink} />
       </View>
       <View style={styles.cardDescription}>
         <Text style={styles.name}>{name}</Text>
+        
         <View style={styles.descriptionContainer}>
             <Image style={styles.star} source={require('../images/star.png')}></Image>
             <Text style={styles.rating}>{rating}  {isNew?'  |': ''}</Text>
